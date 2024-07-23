@@ -2,6 +2,7 @@
 #include <atomic>
 #include <chrono>
 #include <thread>
+#include "spdlog/spdlog.h"
 
 std::atomic<bool> isClosing = false;
 std::chrono::high_resolution_clock::time_point previousTime;
@@ -12,11 +13,8 @@ void data_handler(const zenoh::Sample& sample)
 
     if (keyExprStr == "dummyData/IMU1/linAcc")
     {
-        auto now = std::chrono::high_resolution_clock::now();
-        std::cout
-            << "Received data from " << keyExprStr << " at "
-            << std::chrono::duration_cast<std::chrono::milliseconds>(now - previousTime).count()
-            << " ms" << std::endl;
+        auto now = std::chrono::high_resolution_clock::now();			
+		spdlog::info("Received data from {} at {} ms.", keyExprStr, std::chrono::duration_cast<std::chrono::milliseconds>(now - previousTime).count());
         previousTime = now;
     }
 }

@@ -2,11 +2,13 @@
 #include <atomic>
 #include <chrono>
 #include <thread>
+#include <iostream>
 
 std::atomic<bool> isClosing{false};
 
 int main(int argc, char** argv)
 {
+	std::cerr << "pub.exe: " << std::endl;
     double periodInSec = 0.01;
 
     zenoh::Config config;

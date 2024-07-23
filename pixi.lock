@@ -18,6 +18,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/cmake-3.30.1-hf8c4bd3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/compilers-1.7.0-ha770c72_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/cxx-compiler-1.7.0-h00ab1b0_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/fmt-10.2.1-h00ab1b0_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/fortran-compiler-1.7.0-heb67821_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/gcc-12.4.0-h236703b_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/gcc_impl_linux-64-12.4.0-hb2e57f8_0.conda
@@ -55,6 +56,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/rhash-1.4.4-hd590300_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/rust-1.79.0-h0a17960_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/rust-std-x86_64-unknown-linux-gnu-1.79.0-h2c6d0dc_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/spdlog-1.13.0-hd2e6256_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sysroot_linux-64-2.17-h4a8ded7_16.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2024a-h0c530f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/xz-5.2.6-h166bdaf_0.tar.bz2
@@ -69,6 +71,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/cxx-compiler-1.7.0-h91493d7_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/flang-5.0.0-he025d50_20180525.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/win-64/flang_win-64-5.0.0-h13ae965_20180526.tar.bz2
+      - conda: https://conda.anaconda.org/conda-forge/win-64/fmt-10.2.1-h181d51b_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/fortran-compiler-1.7.0-h9655429_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/krb5-1.21.3-hdf4eb48_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libcurl-8.8.0-hd5e4a3a_1.conda
@@ -96,6 +99,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/pkg-config-0.29.2-h88c491f_1009.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/rust-1.79.0-hf8d6059_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/rust-std-x86_64-pc-windows-msvc-1.79.0-h17fc481_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/spdlog-1.13.0-h64d2f7d_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/ucrt-10.0.22621.0-h57928b3_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/win-64/vc-14.3-h8a93ad2_20.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/vc14_runtime-14.40.33810-ha82c5b3_20.conda
@@ -464,6 +468,37 @@ packages:
   license: Apache 2.0
   size: 4799
   timestamp: 1611788765006
+- kind: conda
+  name: fmt
+  version: 10.2.1
+  build: h00ab1b0_0
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/fmt-10.2.1-h00ab1b0_0.conda
+  sha256: 7b9ba098a3661e023c3555e01554354ac4891af8f8998e85f0fcbfdac79fc0d4
+  md5: 35ef8bc24bd34074ebae3c943d551728
+  depends:
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  license: MIT
+  license_family: MIT
+  size: 193853
+  timestamp: 1704454679950
+- kind: conda
+  name: fmt
+  version: 10.2.1
+  build: h181d51b_0
+  subdir: win-64
+  url: https://conda.anaconda.org/conda-forge/win-64/fmt-10.2.1-h181d51b_0.conda
+  sha256: 4593d75b6a1e0b5b43fdcba6b968537638a6e469521fb4c3073929f973891828
+  md5: 4253b572559cc775cae49def5c97b3c0
+  depends:
+  - ucrt >=10.0.20348.0
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
+  license: MIT
+  license_family: MIT
+  size: 185170
+  timestamp: 1704455079451
 - kind: conda
   name: fortran-compiler
   version: 1.7.0
@@ -1509,6 +1544,39 @@ packages:
   license_family: MIT
   size: 34298472
   timestamp: 1718632884161
+- kind: conda
+  name: spdlog
+  version: 1.13.0
+  build: h64d2f7d_0
+  subdir: win-64
+  url: https://conda.anaconda.org/conda-forge/win-64/spdlog-1.13.0-h64d2f7d_0.conda
+  sha256: 7c5c8d6e2df300f7887e5488a21b11d854ffbc51a1b149af4164d6cbd225fd7a
+  md5: e21d3d1aef3973f78ee161bb053c5922
+  depends:
+  - fmt >=10.2.1,<11.0a0
+  - ucrt >=10.0.20348.0
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
+  license: MIT
+  license_family: MIT
+  size: 161230
+  timestamp: 1713902489730
+- kind: conda
+  name: spdlog
+  version: 1.13.0
+  build: hd2e6256_0
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/spdlog-1.13.0-hd2e6256_0.conda
+  sha256: 2027b971e83a9c9d292c12880269fe08e782fe9b15b93b5a3ddc8697116e6750
+  md5: 18f9348f064632785d54dbd1db9344bb
+  depends:
+  - fmt >=10.2.1,<11.0a0
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  license: MIT
+  license_family: MIT
+  size: 188328
+  timestamp: 1713902039030
 - kind: conda
   name: sysroot_linux-64
   version: '2.17'

@@ -23,8 +23,14 @@ configure = { cmd = [
 ]}
 
 build = { cmd = "cmake --build .build --config Release", depends_on = ["configure"] }
-pub = { cmd = "./.build/pub", depends_on = ["build"] }
-sub = { cmd = "./.build/sub", depends_on = ["build"] }
+post_build = { cmd = "echo ", depends_on = ["build"]}
+pub = { cmd = "./.build/pub", depends_on = ["post_build"] }
+sub = { cmd = "./.build/sub", depends_on = ["post_build"] }
+
+[target.win-64.tasks]
+# Workaround for zenoh-c putting the .dll in the wrong place
+post_build = { cmd = "cp ./.build/_deps/zenohc-build/release/target/release/zenohc.dll ./.build/", depends_on = ["build"], inputs = [".build/_deps/zenohc-build/release/target/release/zenohc.dll"], outputs = [".build/zenohc.dll"]}
+
 
 [dependencies]
 compilers = ">=1.7.0,<1.8"
@@ -33,3 +39,4 @@ pkg-config = ">=0.29.2,<0.30"
 make = ">=4.3,<5"
 ninja = ">=1.12.1,<1.13"
 rust = ">=1.79.0,<1.80"
+spdlog = ">=1.13.0,<1.14"
