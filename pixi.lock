@@ -29,10 +29,14 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/gxx-12.4.0-h236703b_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/gxx_impl_linux-64-12.4.0-h557a472_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/gxx_linux-64-12.4.0-h8489865_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/icu-75.1-he02047a_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/kernel-headers_linux-64-3.10.0-h4a8ded7_16.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/keyutils-1.6.1-h166bdaf_0.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/krb5-1.21.3-h659f571_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/ld_impl_linux-64-2.40-hf3520f5_7.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libboost-1.85.0-h0ccab89_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libboost-devel-1.85.0-h00ab1b0_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/libboost-headers-1.85.0-ha770c72_3.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libcurl-8.8.0-hca28451_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libedit-3.1.20191231-he28a2e2_2.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/linux-64/libev-4.33-hd590300_2.conda
@@ -74,6 +78,9 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/win-64/fmt-10.2.1-h181d51b_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/fortran-compiler-1.7.0-h9655429_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/krb5-1.21.3-hdf4eb48_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/libboost-1.85.0-h444863b_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/libboost-devel-1.85.0-h91493d7_3.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/libboost-headers-1.85.0-h57928b3_3.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libcurl-8.8.0-hd5e4a3a_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libexpat-2.6.2-h63175ca_0.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/libffi-3.4.2-h8ffe710_5.tar.bz2
@@ -682,6 +689,22 @@ packages:
   size: 29827
   timestamp: 1721141685737
 - kind: conda
+  name: icu
+  version: '75.1'
+  build: he02047a_0
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/icu-75.1-he02047a_0.conda
+  sha256: 71e750d509f5fa3421087ba88ef9a7b9be11c53174af3aa4d06aff4c18b38e8e
+  md5: 8b189310083baabfb622af68fd9d3ae3
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  license: MIT
+  license_family: MIT
+  size: 12129203
+  timestamp: 1720853576813
+- kind: conda
   name: kernel-headers_linux-64
   version: 3.10.0
   build: h4a8ded7_16
@@ -763,6 +786,114 @@ packages:
   license_family: GPL
   size: 707602
   timestamp: 1718625640445
+- kind: conda
+  name: libboost
+  version: 1.85.0
+  build: h0ccab89_3
+  build_number: 3
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/libboost-1.85.0-h0ccab89_3.conda
+  sha256: 4c0435949e1570675df623ec6a9312375bbc883fc327087ae9e822c6dffaaed6
+  md5: 37dcb472dddc0a146192a67fb8e72af2
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - bzip2 >=1.0.8,<2.0a0
+  - icu >=75.1,<76.0a0
+  - libgcc-ng >=12
+  - libstdcxx-ng >=12
+  - libzlib >=1.3.1,<2.0a0
+  - xz >=5.2.6,<6.0a0
+  - zstd >=1.5.6,<1.6.0a0
+  constrains:
+  - boost-cpp =1.85.0
+  license: BSL-1.0
+  size: 2857253
+  timestamp: 1721382091098
+- kind: conda
+  name: libboost
+  version: 1.85.0
+  build: h444863b_3
+  build_number: 3
+  subdir: win-64
+  url: https://conda.anaconda.org/conda-forge/win-64/libboost-1.85.0-h444863b_3.conda
+  sha256: 19d64257e7cafae0269a5da5c9185d1a187e782f76b0faf61d1e4727dfe10411
+  md5: 9d56cac61616a2d7783fa81a6811128d
+  depends:
+  - bzip2 >=1.0.8,<2.0a0
+  - libiconv >=1.17,<2.0a0
+  - libzlib >=1.3.1,<2.0a0
+  - ucrt >=10.0.20348.0
+  - vc >=14.2,<15
+  - vc14_runtime >=14.29.30139
+  - xz >=5.2.6,<6.0a0
+  - zstd >=1.5.6,<1.6.0a0
+  constrains:
+  - boost-cpp =1.85.0
+  license: BSL-1.0
+  size: 2491712
+  timestamp: 1721383466275
+- kind: conda
+  name: libboost-devel
+  version: 1.85.0
+  build: h00ab1b0_3
+  build_number: 3
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/libboost-devel-1.85.0-h00ab1b0_3.conda
+  sha256: 1f7ad9b0577ad5f25d30c4a2d846ea9dff7978924de05b2f42cb76db77ffbfa1
+  md5: 9ed29b4616711f79793193a993c610aa
+  depends:
+  - libboost 1.85.0 h0ccab89_3
+  - libboost-headers 1.85.0 ha770c72_3
+  constrains:
+  - boost-cpp =1.85.0
+  license: BSL-1.0
+  size: 40545
+  timestamp: 1721382249993
+- kind: conda
+  name: libboost-devel
+  version: 1.85.0
+  build: h91493d7_3
+  build_number: 3
+  subdir: win-64
+  url: https://conda.anaconda.org/conda-forge/win-64/libboost-devel-1.85.0-h91493d7_3.conda
+  sha256: e1c4fd0b37d82b671fad74e768177f442831352666901706fcc54fb5f466e84f
+  md5: 657453392886493a6477a470c7da5d15
+  depends:
+  - libboost 1.85.0 h444863b_3
+  - libboost-headers 1.85.0 h57928b3_3
+  constrains:
+  - boost-cpp =1.85.0
+  license: BSL-1.0
+  size: 43187
+  timestamp: 1721383766003
+- kind: conda
+  name: libboost-headers
+  version: 1.85.0
+  build: h57928b3_3
+  build_number: 3
+  subdir: win-64
+  url: https://conda.anaconda.org/conda-forge/win-64/libboost-headers-1.85.0-h57928b3_3.conda
+  sha256: 4874333feeae072edeb264696ce20b5d237747c349cac312061f4b39681a7ce7
+  md5: 04718613ffb2b8778f3cbf253745255f
+  constrains:
+  - boost-cpp =1.85.0
+  license: BSL-1.0
+  size: 14149038
+  timestamp: 1721383555502
+- kind: conda
+  name: libboost-headers
+  version: 1.85.0
+  build: ha770c72_3
+  build_number: 3
+  subdir: linux-64
+  url: https://conda.anaconda.org/conda-forge/linux-64/libboost-headers-1.85.0-ha770c72_3.conda
+  sha256: 7b419be2c99c89c02422ab0c30e8a88e20c60d7efff60f3f4afad96629b91772
+  md5: 7bb7851133645b428320393dcaf53909
+  constrains:
+  - boost-cpp =1.85.0
+  license: BSL-1.0
+  size: 14017802
+  timestamp: 1721382114731
 - kind: conda
   name: libcurl
   version: 8.8.0

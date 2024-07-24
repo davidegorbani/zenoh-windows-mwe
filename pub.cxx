@@ -24,12 +24,13 @@ int main(int argc, char** argv)
         std::vector<double> angVelNode = {0.0, 0.0, 0.0};
         std::vector<double> rotNode = {1.0, 0.0, 0.0, 0.0};
 
-        for (int i = 1; i <= 12; i++)
+        for (int i = 1; i <= 1; i++)
         {
             session.put("dummyData/IMU" + std::to_string(i) + "/linAcc", accNode);
+            /*
             session.put("dummyData/IMU" + std::to_string(i) + "/angVel", angVelNode);
             session.put("dummyData/IMU" + std::to_string(i) + "/orientation", rotNode);
-            session.put("dummyData/IMU" + std::to_string(i) + "/magnetometer", rotNode);
+            session.put("dummyData/IMU" + std::to_string(i) + "/magnetometer", rotNode);*/
         }
 
         auto endTime = std::chrono::high_resolution_clock::now();
