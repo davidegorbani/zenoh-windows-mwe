@@ -3,6 +3,9 @@ cmake_minimum_required(VERSION 3.16)
 # Set the project name
 project(zenoh-cpp-example)
 
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/ConfigFolderPath.h.in" "${CMAKE_CURRENT_BINARY_DIR}/ConfigFolderPath.h" @ONLY)
+
 find_package(spdlog REQUIRED)
 find_package(Boost REQUIRED)
 
